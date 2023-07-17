@@ -1,0 +1,25 @@
+function numberOfMobileUpdates(isIncreased) {
+  const numberOfMobile = document.getElementById("mobile-number");
+  const numberOfMobileString = numberOfMobile.value;
+  const totalNumberOfMobile = parseInt(numberOfMobileString);
+
+  let newNumberOfMobile;
+  if (isIncreased === true) {
+    newNumberOfMobile = totalNumberOfMobile + 1;
+  } else {
+    newNumberOfMobile = totalNumberOfMobile - 1;
+  }
+  numberOfMobile.value = newNumberOfMobile;
+}
+
+document
+  .getElementById("btn-plus-mobile")
+  .addEventListener("click", function () {
+    numberOfMobileUpdates(true);
+  });
+
+document
+  .getElementById("btn-minus-mobile")
+  .addEventListener("click", function () {
+    numberOfMobileUpdates(false);
+  });
