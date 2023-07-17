@@ -10,16 +10,27 @@ function numberOfMobileUpdates(isIncreased) {
     newNumberOfMobile = totalNumberOfMobile - 1;
   }
   numberOfMobile.value = newNumberOfMobile;
+  return newNumberOfMobile;
 }
 
+function perMobileTotalUpdatePrice(increaseOrDecrease) {
+  const perMobileTotalPrice = increaseOrDecrease * 1219;
+  const mobilePrice = document.getElementById("mobile-price");
+  mobilePrice.innerText = perMobileTotalPrice;
+}
+
+// plus buttons
 document
   .getElementById("btn-plus-mobile")
   .addEventListener("click", function () {
-    numberOfMobileUpdates(true);
+    const mobileNumberIncrease = numberOfMobileUpdates(true);
+    perMobileTotalUpdatePrice(mobileNumberIncrease);
   });
 
+//   minuses button
 document
   .getElementById("btn-minus-mobile")
   .addEventListener("click", function () {
-    numberOfMobileUpdates(false);
+    const mobileNumberDecrease = numberOfMobileUpdates(false);
+    perMobileTotalUpdatePrice(mobileNumberDecrease);
   });
