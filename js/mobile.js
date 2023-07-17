@@ -9,6 +9,10 @@ function numberOfMobileUpdates(isIncreased) {
   } else {
     newNumberOfMobile = totalNumberOfMobile - 1;
   }
+  if (newNumberOfMobile < 0) {
+    alert("Number of mobile must not be less than zero (0)!");
+    return false;
+  }
   numberOfMobile.value = newNumberOfMobile;
   return newNumberOfMobile;
 }
@@ -25,6 +29,9 @@ document
   .addEventListener("click", function () {
     const mobileNumberIncrease = numberOfMobileUpdates(true);
     perMobileTotalUpdatePrice(mobileNumberIncrease);
+
+    // calculate subtotal for mobile update
+    calculateSubtotal();
   });
 
 //   minuses button
@@ -33,4 +40,8 @@ document
   .addEventListener("click", function () {
     const mobileNumberDecrease = numberOfMobileUpdates(false);
     perMobileTotalUpdatePrice(mobileNumberDecrease);
+
+    // calculate subtotal for mobile update
+
+    calculateSubtotal();
   });

@@ -29,6 +29,9 @@ function casePriceTotalById(increaseOrDecrease) {
 document.getElementById("btn-plus-case").addEventListener("click", function () {
   const increaseCaseNumber = updateCaseQuantityById(true);
   casePriceTotalById(increaseCaseNumber);
+
+  // calculate subtotal for case update
+  calculateSubtotal();
 });
 
 document
@@ -36,4 +39,6 @@ document
   .addEventListener("click", function () {
     const decreaseCaseNumber = updateCaseQuantityById(false);
     casePriceTotalById(decreaseCaseNumber);
+    // calculate subtotal for case update
+    calculateSubtotal();
   });
